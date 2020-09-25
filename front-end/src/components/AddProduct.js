@@ -11,6 +11,12 @@ class AddProduct extends Component {
         }
     }
 
+    handleEventChange = (field,event) => {
+        this.setState({
+          [field]:event.target.value
+        })
+      }
+
     render(){
         return (
             <form className="productForm">
