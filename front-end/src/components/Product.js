@@ -11,7 +11,7 @@ class Product extends Component {
             unit:product.unit,
         }
 
-        fetch("http://127.0.0.1:8080/products",{
+        fetch("http://127.0.0.1:8080/order",{
             method: "POST",
             body: JSON.stringify(order),
         }).then((response)=>{
