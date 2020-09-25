@@ -65,4 +65,17 @@ class OrderControllerTest {
         assertEquals(2,orders.get(0).getAmount());
     }
 
+    @Test
+    void shouldDeleteOrderByIdSuccess() throws Exception {
+        OrderEntity orderEntity = OrderEntity.builder()
+                .name("可乐1")
+                .unitPrice(2.5)
+                .unit("元/瓶")
+                .amount(2).build();
+        orderRepository.save(orderEntity);
+        mockMvc.perform(delete("/orders/{id}",orderEntity.getId()))
+                .andExpect(status().isNoContent());
+        assertEquals(0,orderRepository.findAll().size());
+    }
+
 }

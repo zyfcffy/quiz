@@ -23,4 +23,10 @@ public class OrderController {
         orderService.addOrders(order);
         return ResponseEntity.created(null).build();
     }
+
+    @DeleteMapping("/orders/{id}")
+    public ResponseEntity<Object> deleteOrderById(@PathVariable Integer id){
+        orderService.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
 }
