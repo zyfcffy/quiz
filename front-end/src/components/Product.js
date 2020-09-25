@@ -4,7 +4,25 @@ import "bootstrap/dist/css/bootstrap.css"
 class Product extends Component {
 
     handleAddProductToOrder=(product)=>{
-        
+        const order = {
+            name:product.name,
+            amount:1,
+            unitPrice:product.unitPrice,
+            unit:product.unit,
+        }
+
+        fetch("http://127.0.0.1:8080/products",{
+            method: "POST",
+            body: JSON.stringify(order),
+        }).then((response)=>{
+        if(response.status===201){
+            alert("添加成功");
+            return;
+        }
+        return Promise.reject(new Error(response.statusText));
+        }).catch((error)=>{
+            console.log(error);
+        })
     }
 
     render() {
