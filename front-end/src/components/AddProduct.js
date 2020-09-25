@@ -17,6 +17,29 @@ class AddProduct extends Component {
         })
       }
 
+    hanleSubmit = () => {
+        let product = {
+            name: this.state.product.name,
+            unitPrice:this.state.product.unitPrice,
+            unit:this.state.product.unit,
+            image:this.state.product.image
+        }
+
+        fetch("http://127.0.0.1:8080/product",{
+            method: "POST",
+            body: JSON.stringify(product),
+        }).then((response)=>{
+        if(response.status===201){
+            alert("添加成功");
+            return;
+        }
+        return Promise.reject(new Error(response.statusText));
+        }).catch((error)=>{
+            console.log(error);
+        })
+    }
+
+
     render(){
         return (
             <form className="productForm">
