@@ -11,8 +11,11 @@ import java.util.stream.Collectors;
 
 @Service
 public class ProductService {
-    @Autowired
-    ProductRepository productRepository;
+    final ProductRepository productRepository;
+
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
 
     public List<Product> getAllProduct() {
         return productRepository.findAll().stream()

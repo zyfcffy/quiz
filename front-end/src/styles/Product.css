@@ -1,0 +1,39 @@
+.product {
+    text-align: center;
+    width: 160px;
+    height: 220px;
+    border: 2px solid lightgray;
+}
+
+.product-image{
+    margin: 5px auto;
+    width: 120px;
+    height: 120px;
+}
+
+.product-image-info{
+    width: 115px;
+}
+
+.product-info{
+    text-align: left;
+}
+
+.product-name {
+    margin-left: 10px;
+    line-height: 3em;
+    margin-bottom: 1px;
+    height: 40px;
+}
+
+.product-price {
+    margin-left: 10px;
+    font-size: 12px;
+    color: #aaa;
+}
+
+.product-add {
+    width: 140px;
+    text-align: right;
+    border: none;
+}

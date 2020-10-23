@@ -12,8 +12,12 @@ import java.util.stream.Collectors;
 
 @Service
 public class OrderService {
-    @Autowired
+    final
     OrderRepository orderRepository;
+
+    public OrderService(OrderRepository orderRepository) {
+        this.orderRepository = orderRepository;
+    }
 
     public List<Order> getAllOrders(){
         return orderRepository.findAll().stream().map(

@@ -1,0 +1,32 @@
+.productForm{
+    margin: auto;
+    width: 90%;
+    height: 430px;
+    background-color: white;
+}
+
+.form-group{
+    margin: auto;
+    width: 90%;
+}
+
+.form-group label{
+    color: black;
+    line-height: 2em;
+}
+
+.form-group p {
+    color: red;
+    line-height: 3em;
+}
+
+.form-group input{
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.productForm h1 {
+    width: 100%;
+    text-align: center;
+    line-height: 2em;
+}

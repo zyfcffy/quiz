@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.css"
+import '../styles/Product.css'
 
 class Product extends Component {
 
@@ -25,17 +26,36 @@ class Product extends Component {
         })
     }
 
+    handleAddProductToShoppingCart= async (product)=>{
+        const shoppingCart = {
+            name:product.name,
+            amount:1,
+            unitPrice:product.unitPrice,
+            unit:product.unit,
+        }
+        await fetch("http://127.0.0.1:8080/shoppingCart",{
+            method:"POST",
+            body: JSON.stringify(shoppingCart),
+        });
+        alert("添加成功");
+    }
+
     render() {
         const {product} = this.props;
         
         return (
-            <section className="product">
-                <div className="productInfo">
-                    <p className="productName">{product.name}</p>
-                    <p className="productPrice">单价：{product.unitPrice}{product.unit}</p>
-                    <button type="button" class="btn btn-light" onClick={()=>{this.handleAddProductToOrder(product)}}>+</button> 
+            <div className="product">
+                <div className="product-image">
+                    <img className="product-image-info" src={product.image} />
                 </div>
-            </section>
+                <div className="product-info">
+                    <p className="product-name">{product.name}</p>
+                    <p className="product-price">单价：{product.unitPrice}{product.unit}</p>
+                </div>
+                <div className="product-add">
+                    <button type="button" className="btn btn-light" onClick={()=>{this.handleAddProductToShoppingCart(product)}}>+</button>
+                </div>
+            </div>
         )
     }
 }

@@ -1,0 +1,21 @@
+.home{
+    display: grid;
+    margin: 0 auto;
+    padding: 20px;
+    width: 85%;
+    height: 400px;
+    background-color: white;
+    grid-template-columns: 150px 150px 150px 150px 150px;
+    gap: 10px 50px;
+}
+
+.shopping-cart{
+    background-color: blue;
+    width: 100px;
+    margin-left:1000px ;
+}
+
+.shopping-cart-img{
+    width: 60px;
+    margin-right: 10px;
+}

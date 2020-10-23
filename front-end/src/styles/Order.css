@@ -1,0 +1,32 @@
+.orders {
+    margin: auto;
+    width: 90%;
+    height: 430px;
+    background-color: white;
+}
+.order-table {
+    margin: auto;
+    border-collapse:collapse;
+}
+
+.order-tab > tr > th {
+    font-size: 20px;
+    background-color: #FAFAFA;
+}
+
+td, th {
+    width: 180px;
+    height: 50px;
+    border: 1px solid #F6F6F6;
+    border-left: none;
+    border-right: none;
+    font-size: 16px;
+    color: #474B4E;
+    text-align: center;
+}
+
+td > button {
+    padding: 8px;
+    color: #D74557;
+    border: none;
+}

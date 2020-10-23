@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.css"
+import '../styles/Order.css'
 
 class Order extends Component {
     state = {
@@ -14,7 +15,7 @@ class Order extends Component {
             }
             return Promise.reject(new Error(response.statusText));
         }).then((data)=>{
-            this.setState({ 
+            this.setState({
                 order:data
              });
         }).catch((error)=>{
@@ -37,25 +38,28 @@ class Order extends Component {
     render() {
         return (
             <div className = 'orders'>
-                <table className = "orderTable">
+                <div className="order-header">
+                    <button type="button" className="btn btn-light">删除</button>
+                </div>
+                <table className = "order-table">
+                    <thead>
                     <tr>
-                        <th>名字</th>
-                        <th>单价</th>
+                        <th>名称</th>
                         <th>数量</th>
+                        <th>单价</th>
                         <th>单位</th>
-                        <th>操作</th>
                     </tr>
-                    {this.state.order.map((key,order) => (
-                        <tr key={key}>
-                            <td className ='row'>{order.name}</td>
-                            <td className ='row'>{order.unitPrice}</td>
-                            <td className ='row'>{order.amount}</td>
-                            <td className ='row'>{order.unit}</td>
-                            <td className ='row'>
-                                <button type="button" class="btn btn-light">删除</button>
-                            </td>
+                    </thead>
+                    <tbody>
+                    {this.state.order.map((key,index) => (
+                        <tr key={index}>
+                            <td>{key.name}</td>
+                            <td>{key.unitPrice}</td>
+                            <td>{key.amount}</td>
+                            <td>{key.unit}</td>
                         </tr>
                     ))}
+                    </tbody>
                 </table>
             </div>
         )
